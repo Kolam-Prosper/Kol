@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, CustomTabsTrigger } from "@/components/custom-tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function Home() {
   return (
@@ -42,8 +42,12 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-4">Gain access to flexible real world assets</h2>
         <Tabs defaultValue="tbonds" className="w-full">
           <TabsList className="grid grid-cols-2">
-            <CustomTabsTrigger value="tbonds">T-Bonds</CustomTabsTrigger>
-            <CustomTabsTrigger value="deeds">Deeds</CustomTabsTrigger>
+            <TabsTrigger value="tbonds" className="data-[state=active]:bg-[#ff6b00] data-[state=active]:text-white">
+              T-Bonds
+            </TabsTrigger>
+            <TabsTrigger value="deeds" className="data-[state=active]:bg-[#ff6b00] data-[state=active]:text-white">
+              Deeds
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="tbonds">T-Bonds Content</TabsContent>
           <TabsContent value="deeds">Deeds Content</TabsContent>
