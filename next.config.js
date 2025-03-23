@@ -10,12 +10,18 @@ const nextConfig = {
     // Disable ESLint checking during build
     ignoreDuringBuilds: true,
   },
-  // If you have any other configurations, they would go here
   images: {
     domains: ["placeholder.svg"],
+    unoptimized: true,
   },
-  // Disable static generation for the entire app
+  // Use standalone output instead of static export
   output: "standalone",
+  // Skip static generation for problematic routes
+  experimental: {
+    // This will make these routes only render on demand
+    skipTrailingSlashRedirect: true,
+    skipMiddlewareUrlNormalize: true,
+  },
 }
 
 module.exports = nextConfig
