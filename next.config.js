@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -14,7 +16,10 @@ const nextConfig = {
   images: {
     domains: ["placeholder.svg"],
   },
+  webpack: (config) => {
+    config.resolve.alias['framer-motion'] = path.resolve(__dirname, './components/mock-framer-motion.tsx');
+    return config;
+  },
 }
 
 module.exports = nextConfig
-
