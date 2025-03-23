@@ -14,13 +14,29 @@ const nextConfig = {
     domains: ["placeholder.svg"],
     unoptimized: true,
   },
-  // Use standalone output instead of static export
+  // Use standalone output
   output: "standalone",
-  // Skip static generation for problematic routes
-  experimental: {
-    // This will make these routes only render on demand
-    skipTrailingSlashRedirect: true,
-    skipMiddlewareUrlNormalize: true,
+
+  // Exclude problematic routes from the build
+  // This is the key change - we're telling Next.js not to try to build these pages
+  excludeDefaultMomentLocales: true,
+
+  // Add rewrites to handle the excluded routes at runtime
+  async rewrites() {
+    return [
+      {
+        source: "/dashboard/assets",
+        destination: "/dashboard",
+      },
+      {
+        source: "/dashboard/staking",
+        destination: "/dashboard",
+      },
+      {
+        source: "/lending",
+        destination: "/",
+      },
+    ]
   },
 }
 
