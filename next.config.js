@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
+const path = require("path")
 
 const nextConfig = {
   reactStrictMode: true,
@@ -15,11 +15,27 @@ const nextConfig = {
   // If you have any other configurations, they would go here
   images: {
     domains: ["placeholder.svg"],
+    unoptimized: true, // Add this for static export
   },
-  webpack: (config) => {
-    config.resolve.alias['framer-motion'] = path.resolve(__dirname, './components/mock-framer-motion.tsx');
-    return config;
+  // This tells Next.js to export a static site
+  output: "export",
+  // Skip problematic routes during static export
+  distDir: "out",
+  trailingSlash: true,
+  // Skip static generation for problematic routes
+  experimental: {
+    // This will make these routes only render on demand
+    appDir: true,
+  },
+  // Add this to prevent static generation of specific routes
+  exportPathMap: async (defaultPathMap) => {
+    // Remove problematic paths
+    delete defaultPathMap["/dashboard/assets"]
+    delete defaultPathMap["/dashboard/staking"]
+    delete defaultPathMap["/lending"]
+    return defaultPathMap
   },
 }
 
 module.exports = nextConfig
+
