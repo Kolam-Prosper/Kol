@@ -49,12 +49,20 @@ export function Navbar() {
             <Link href="#investments" className="text-sm hover:text-primary transition-colors">
               Investments
             </Link>
-            <Button
-              variant="outline"
-              className="ml-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              Launch App
-            </Button>
+            <Link href="/whitepaper" className="text-sm hover:text-primary transition-colors">
+              Whitepaper
+            </Link>
+            <Link href="/pitchdeck" className="text-sm hover:text-primary transition-colors">
+              Pitch Deck
+            </Link>
+            <Link href="/dapp">
+              <Button
+                variant="outline"
+                className="ml-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              >
+                Launch App
+              </Button>
+            </Link>
           </nav>
 
           <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMobileMenuOpen(true)}>
@@ -99,14 +107,22 @@ export function Navbar() {
               <Link href="#investments" className="text-2xl font-medium" onClick={() => setIsMobileMenuOpen(false)}>
                 Investments
               </Link>
-              <Button
-                variant="default"
-                size="lg"
-                className="mt-8 bg-primary hover:bg-primary/90 text-black font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Launch App
-              </Button>
+              <Link href="/whitepaper" className="text-2xl font-medium" onClick={() => setIsMobileMenuOpen(false)}>
+                Whitepaper
+              </Link>
+              <Link href="/pitchdeck" className="text-2xl font-medium" onClick={() => setIsMobileMenuOpen(false)}>
+                Pitch Deck
+              </Link>
+              <Link href="/dapp">
+                <Button
+                  variant="default"
+                  size="lg"
+                  className="mt-8 bg-primary hover:bg-primary/90 text-black font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Launch App
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}

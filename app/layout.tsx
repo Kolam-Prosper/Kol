@@ -6,8 +6,9 @@ import type { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
 
+// Update the metadata title and description
 export const metadata: Metadata = {
-  title: "Kol Finance | Tokenized Real-World Assets",
+  title: "Kolam Prosper | Tokenized Real-World Assets",
   description:
     "Revolutionizing finance with tokenized T-bonds, property deeds, staking, lending, and LST investments on Unichain",
 }
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
